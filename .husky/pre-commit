@@ -1,4 +1,2 @@
-
 yarn tsc --noEmit --skipLibCheck
-
 yarn lint-staged

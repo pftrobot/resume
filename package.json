@@ -6,10 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "husky",
-    "prepack": "pinst --disable",
-    "postpack": "pinst --enable"
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.13.0",
@@ -34,7 +31,13 @@
     "eslint-plugin-react": "^7.34.4",
     "eslint-plugin-react-hooks": "^4.6.2",
     "husky": "^9.1.1",
+    "lint-staged": "^15.2.7",
     "prettier": "^3.3.3",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "./app/**/*.{js,jsx,ts,tsx}": [
+      "eslint ./app"
+    ]
   }
 }
