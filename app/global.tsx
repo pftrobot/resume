@@ -125,6 +125,11 @@ const globalStyles = css`
     border-collapse: collapse;
     border-spacing: 0;
   }
+
+  button {
+    font-family: var(--font-noto-sans-kr), sans-serif;
+    cursor: pointer;
+  }
 `
 
 export const GlobalStyles = () => <Global styles={globalStyles} />

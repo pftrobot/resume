@@ -5,6 +5,7 @@ import SkillList from '@/app/components/main/Skill'
 import { EXPERIENCE_LIST, SKILL_LIST } from '@/app/data'
 import { breakMedium, containerWidth } from '@/app/data/style'
 import { css } from '@emotion/react'
+import Link from 'next/link'
 
 /** @jsxImportSource @emotion/react */
 
@@ -80,7 +81,9 @@ const Home = () => {
         <p className="title">Contact</p>
         <div className="text-area">
           <p>pftrobot@gmail.com</p>
-          <p>https://github.com/pftrobot/resume</p>
+          <Link href="https://github.com/pftrobot" target="_blank">
+            Github
+          </Link>
         </div>
       </section>
     </main>
@@ -101,6 +104,10 @@ const MainCSS = () => css`
 
   @media (max-width: ${containerWidth}px) {
     padding: 88px 36px;
+  }
+
+  @media (max-width: ${breakMedium}px) {
+    padding: 54px 16px;
   }
 
   p {
@@ -198,16 +205,26 @@ const MainCSS = () => css`
     text-align: right;
     padding-top: 24px;
 
+    @media (max-width: ${breakMedium}px) {
+      display: block;
+      text-align: right;
+    }
+
     span {
+      display: block;
       font-size: 12px;
       color: #bbb;
+
+      @media (max-width: ${breakMedium}px) {
+        display: block;
+      }
     }
 
     .title {
       margin: 0;
 
       + * {
-        margin-top: 8px;
+        margin-top: 16px;
       }
     }
   }
@@ -215,8 +232,67 @@ const MainCSS = () => css`
   .award {
     .description {
       font-size: 14px;
+      font-weight: 300;
       color: #aaa;
       margin-top: 6px;
+
+      @media (max-width: ${breakMedium}px) {
+      }
+    }
+  }
+
+  .contact {
+    .text-area {
+      margin-top: 10px;
+    }
+
+    button,
+    a {
+      font-size: 16px;
+      padding: 6px 8px;
+      margin-right: -8px;
+    }
+
+    button {
+      display: block;
+      font-weight: 300;
+      border: none;
+      background-color: transparent;
+      transition: all 0.2s linear;
+
+      @media (max-width: ${breakMedium}px) {
+        margin-left: auto;
+      }
+
+      svg {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -2px;
+        stroke: #333;
+        transition: stroke 0.2s linear;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: orange;
+
+          svg {
+            stroke: orange;
+          }
+        }
+      }
+    }
+
+    a {
+      font-size: 16px;
+      color: orange;
+      text-decoration: none;
+
+      @media (hover: hover) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 `
