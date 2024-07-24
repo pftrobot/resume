@@ -1,13 +1,49 @@
-'use client'
+import { Metadata } from 'next'
 
-import { GlobalStyles } from '@/app/global'
-import { Noto_Sans_KR } from 'next/font/google'
+import GlobalStyleClient from './GlobalStyleClient'
 
-const notoSansKR = Noto_Sans_KR({
-  weight: ['300', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-})
+export const metadata: Metadata = {
+  description: '웹 프론트엔드 개발자 오이슬의 이력서 페이지입니다.',
+  keywords: [
+    '프론트엔드',
+    'Frontend',
+    '웹개발',
+    '개발자',
+    'Developer',
+    '경력',
+    '이력서',
+    'Javascript',
+    'Typescript',
+    'React',
+    'Next',
+    'Vue',
+    'GSAP',
+    'WebGL',
+  ],
+  authors: [{ name: '오이슬' }],
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    url: 'https://www.pftrobot.com',
+    title: '웹 프론트엔드 - 오이슬',
+    description: '웹 프론트엔드 개발자 오이슬의 이력서 페이지입니다.',
+    siteName: "Oh Yiseul's Resume",
+    images: [
+      {
+        url: '/images/meta.jpg',
+        width: 800,
+        height: 600,
+        alt: '웹 프론트엔드 - 오이슬',
+      },
+    ],
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.png',
+  },
+  themeColor: '#ffffff',
+}
 
 export default function RootLayout({
   children,
@@ -17,20 +53,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        <title>웹 프론트엔드 이력서 - 오이슬</title>
+        <title>웹 프론트엔드 - 오이슬</title>
       </head>
-      <style jsx global>
-        {`
-          :root {
-            --font-noto-sans-kr: ${notoSansKR.style.fontFamily};
-          }
-        `}
-      </style>
-
-      <body className={notoSansKR.className}>
-        <GlobalStyles />
-        {children}
-      </body>
+      <GlobalStyleClient />
+      <body>{children}</body>
     </html>
   )
 }

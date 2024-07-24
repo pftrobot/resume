@@ -276,6 +276,7 @@ const ProjectCSS = () => css`
     .title {
       font-size: 16px;
       font-weight: 500;
+      color: orange;
       margin: 36px 0 8px;
 
       &:after {

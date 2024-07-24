@@ -309,7 +309,7 @@ const LinkCSS = () => {
     &:before {
       position: absolute;
       left: 50%;
-      bottom: 0;
+      bottom: 4px;
       display: block;
       content: '';
       width: 0;
