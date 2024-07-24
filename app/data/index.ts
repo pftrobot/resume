@@ -114,7 +114,7 @@ export const EXPERIENCE_LIST: Experience[] = [
   },
   {
     companyName: '더즈인터랙티브',
-    role: 'FE Assistant Developer',
+    role: 'FE Assistant Manager',
     period: '2019.08 - 2022.05',
     projects: [
       {
