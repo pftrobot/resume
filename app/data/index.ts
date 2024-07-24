@@ -16,6 +16,7 @@ export interface Project {
     others?: string[]
     etc?: string[]
   }
+  link?: string
 }
 
 export interface Experience {
@@ -93,6 +94,7 @@ export const EXPERIENCE_LIST: Experience[] = [
           ],
           etc: ['mono-repo', 'yarn', 'azure'],
         },
+        link: 'https://solvook.com',
       },
       {
         name: '법적조치 관리 사이트 신규 개발',
@@ -131,6 +133,7 @@ export const EXPERIENCE_LIST: Experience[] = [
           'AEM 서버 내 컴포넌트 제작 및 조합하여 페이지 제작',
           '2천 장 이상의 이미지 로딩 방식을 최적화하여 평균 로딩 속도 30% 감소',
         ],
+        link: 'https://www.hankooktire.com/kr/ko/home.html',
       },
       {
         name: '스마일게이트 홈페이지 구축',
@@ -140,6 +143,7 @@ export const EXPERIENCE_LIST: Experience[] = [
           '스타일 속성 최적화하여 애니메이션 로딩 속도 평균 30% 감소',
           'IE 및 모바일 구 디바이스 크로스 브라우징',
         ],
+        link: 'https://www.smilegate.com/ko/',
       },
       {
         name: '반다이남코코리아몰 플랫폼 구축',
@@ -147,6 +151,7 @@ export const EXPERIENCE_LIST: Experience[] = [
         output: [
           '세 개의 외부 개발사와 협업하여 쇼핑몰에 필요한 UI 작업 및 어플리케이션화를 위한 지원',
         ],
+        link: 'https://www.bnkrmall.co.kr/',
       },
       {
         name: 'SK 매직 홈페이지 구축',
@@ -160,6 +165,7 @@ export const EXPERIENCE_LIST: Experience[] = [
           core: ['Html5', 'Css3', 'Javascript', 'GSAP'],
           others: ['WebGL', 'JSP', 'Thymeleaf', 'AEM'],
         },
+        link: 'https://company.skmagic.com/',
       },
     ],
   },

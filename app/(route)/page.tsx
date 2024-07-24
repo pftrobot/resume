@@ -81,7 +81,11 @@ const Home = () => {
         <p className="title">Contact</p>
         <div className="text-area">
           <p>pftrobot@gmail.com</p>
-          <Link href="https://github.com/pftrobot" target="_blank">
+          <Link
+            href="https://github.com/pftrobot"
+            target="_blank"
+            css={LinkCSS}
+          >
             Github
           </Link>
         </div>
@@ -118,44 +122,46 @@ const MainCSS = () => css`
     }
   }
 
-  section > p > span {
-    display: block;
-    font-size: 12px;
-    color: gray;
-    line-height: 2;
-  }
-
-  .title {
-    font-size: 36px;
-    font-weight: 700;
-    color: orange;
-    margin: 96px 0 24px;
-
-    &:after {
-      content: '';
-      display: inline-block;
-      vertical-align: bottom;
-      width: 8px;
-      height: 8px;
-      margin-bottom: 12px;
-      margin-left: 4px;
-      border-radius: 50%;
-      background-color: orange;
+  section {
+    > p > span {
+      display: block;
+      font-size: 12px;
+      color: gray;
+      line-height: 2;
     }
 
-    @media (max-width: ${containerWidth}px) {
-      font-size: 28px;
-      margin: 48px 0 24px;
+    > .title {
+      font-size: 36px;
+      font-weight: 700;
+      color: orange;
+      margin: 96px 0 24px;
 
       &:after {
-        width: 5px;
-        height: 5px;
-        margin-bottom: 8px;
+        content: '';
+        display: inline-block;
+        vertical-align: bottom;
+        width: 8px;
+        height: 8px;
+        margin-bottom: 12px;
+        margin-left: 4px;
+        border-radius: 50%;
+        background-color: orange;
       }
-    }
 
-    @media (max-width: ${breakMedium}px) {
-      font-size: 24px;
+      @media (max-width: ${containerWidth}px) {
+        font-size: 28px;
+        margin: 48px 0 24px;
+
+        &:after {
+          width: 5px;
+          height: 5px;
+          margin-bottom: 8px;
+        }
+      }
+
+      @media (max-width: ${breakMedium}px) {
+        font-size: 24px;
+      }
     }
   }
 
@@ -249,13 +255,13 @@ const MainCSS = () => css`
     button,
     a {
       font-size: 16px;
-      padding: 6px 8px;
       margin-right: -8px;
     }
 
     button {
       display: block;
       font-weight: 300;
+      padding: 6px 8px;
       border: none;
       background-color: transparent;
       transition: all 0.2s linear;
@@ -284,15 +290,41 @@ const MainCSS = () => css`
     }
 
     a {
+      display: inline-block;
       font-size: 16px;
       color: orange;
       text-decoration: none;
-
-      @media (hover: hover) {
-        &:hover {
-          text-decoration: underline;
-        }
-      }
+      margin-top: 4px;
     }
   }
 `
+
+const LinkCSS = () => {
+  const linkSidePadding = 8
+
+  return css`
+    position: relative;
+    padding: 6px ${linkSidePadding}px;
+
+    &:before {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      display: block;
+      content: '';
+      width: 0;
+      height: 2px;
+      background-color: orange;
+      transition: width 0.3s;
+      translate: -50%;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        &:before {
+          width: calc(100% - ${linkSidePadding * 2}px);
+        }
+      }
+    }
+  `
+}

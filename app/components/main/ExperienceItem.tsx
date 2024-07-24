@@ -3,6 +3,7 @@
 import { Experience, Project } from '@/app/data'
 import { breakMedium, containerWidth } from '@/app/data/style'
 import { css } from '@emotion/react'
+import Link from 'next/link'
 
 /** @jsxImportSource @emotion/react */
 
@@ -25,9 +26,17 @@ const ExperienceItem = ({ item }: { item: Experience }) => (
 
 const ProjectItem = ({ project }: { project: Project }) => (
   <div className="project" css={ProjectCSS}>
-    <p className="name">
-      {project.name} <span>{project.period}</span>
-    </p>
+    {project.link ? (
+      <Link href={project.link} target="_blank" className="title">
+        <span className={'name'}>{project.name}</span>{' '}
+        <span>{project.period}</span>
+      </Link>
+    ) : (
+      <p className="title">
+        {project.name} <span>{project.period}</span>
+      </p>
+    )}
+
     <ul>
       {project.output.map(text => (
         <li key={`${project.name}-${text}`}>{text}</li>
@@ -145,12 +154,56 @@ const ProjectCSS = () => css`
     margin-top: 28px;
   }
 
-  .name {
+  .title {
     font-size: 20px;
+    text-decoration: none;
 
     span {
       font-size: 16px;
       color: #bbb;
+    }
+
+    .name {
+      position: relative;
+      font-size: 20px;
+      color: #333;
+
+      &:before {
+        position: absolute;
+        left: 50%;
+        bottom: -2px;
+        display: block;
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: orange;
+        transition: width 0.3s;
+        translate: -50%;
+      }
+
+      &:after {
+        display: inline-block;
+        content: '';
+        vertical-align: middle;
+        width: 14px;
+        height: 14px;
+        margin: -8px 4px 0;
+        opacity: 0.4;
+        background: url('/icons/outlink.svg') no-repeat 50% 50%;
+        background-size: contain;
+        transition: opacity 0.3s;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          &:before {
+            width: 100%;
+          }
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
     }
 
     @media (max-width: ${containerWidth}px) {
