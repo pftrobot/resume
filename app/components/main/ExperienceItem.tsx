@@ -214,6 +214,10 @@ const ProjectCSS = () => css`
         font-size: 12px;
         text-align: left;
         margin-top: 6px;
+
+        &.name {
+          display: inline-block;
+        }
       }
     }
   }
