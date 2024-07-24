@@ -62,6 +62,7 @@ export const EXPERIENCE_LIST: Experience[] = [
         output: [
           'Canvas를 활용하여 실시간 축구 시뮬레이션 설계 및 구현',
           '전반적인 로딩 최적화 작업',
+          'Google 회원가입, 로그인 연동',
         ],
         skills: {
           core: ['Vue', 'Nuxt', 'Typescript'],
@@ -98,7 +99,7 @@ export const EXPERIENCE_LIST: Experience[] = [
       },
       {
         name: '법적조치 관리 사이트 신규 개발',
-        period: '2032.08 - 2023.12',
+        period: '2023.08 - 2023.12',
         output: [
           '프로젝트 구조 설계 및 공통 컴포넌트 개발',
           '인프라 비용 절감을 위해 SSG 방식 채택하여 AWS, Github Action으로 자동 배포 구축',
