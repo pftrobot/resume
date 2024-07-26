@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { ReactNode } from 'react'
 
 import GlobalStyleClient from './GlobalStyleClient'
 
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: ReactNode
 }>) {
   return (
     <html lang="ko">
