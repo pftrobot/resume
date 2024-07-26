@@ -8,79 +8,79 @@ import { css } from '@emotion/react'
 import Link from 'next/link'
 
 /** @jsxImportSource @emotion/react */
+const Home = () => (
+  <main css={MainCSS}>
+    <section className="info">
+      <h1>
+        안녕하세요 <br />웹 프론트엔드 개발자 <br />
+        오이슬입니다
+      </h1>
+    </section>
+    <section className="introduce">
+      <p className="title">Introduce</p>
+      <p>
+        React, Next.js, Typescript 기반 서비스 구축 및 운영 경험이 있으며, 웹
+        표준을 고려한 인터랙티브 웹 프로젝트들을 진행했습니다. <br />
+        재사용 가능한 컴포넌트 작성과 코드의 완성도를 높이는 과정에 큰 즐거움을
+        느낍니다. 개발을 할 때 정답이 있다기보다 상황에 적절한 최적의 방식이
+        있다고 생각하고, 이를 위한 건설적인 토론과 코드 리뷰를 좋아합니다.
+      </p>
+    </section>
+    <section className="skills">
+      <p className="title">Skills</p>
+      <div className="core">
+        <div className="main">
+          <SkillList skills={SKILL_LIST.core.main} prefix={'main'} />
+        </div>
+      </div>
+      <div className="others">
+        <div className="statement">
+          <SkillList
+            skills={SKILL_LIST.others.statement}
+            prefix={'statement'}
+          />
+        </div>
+        <div className="style">
+          <SkillList skills={SKILL_LIST.others.style} prefix={'style'} />
+        </div>
+        <div className="etc">
+          <SkillList skills={SKILL_LIST.others.etc} prefix={'etc'} />
+        </div>
+      </div>
+    </section>
+    <section className="experience-area">
+      <p className="title">Experiences</p>
 
-const Home = () => {
-  return (
-    <main css={MainCSS}>
-      <section className="info">
-        <h1>
-          안녕하세요 <br />웹 프론트엔드 개발자 <br />
-          오이슬입니다
-        </h1>
-      </section>
-      <section className="introduce">
-        <p className="title">Introduce</p>
+      {EXPERIENCE_LIST.map(item => (
+        <ExperienceItem item={item} key={`experience-${item.companyName}`} />
+      ))}
+    </section>
+    <section className="education">
+      <p className="title">Education</p>
+      <p>
+        계원예술대학교 디지털미디어디자인과 프로그래밍전공
+        <span>2015.03 - 2018.02</span>
+      </p>
+    </section>
+    <section className="award">
+      <p className="title">Award</p>
+      <div className="text-area">
         <p>
-          React, Next.js, Typescript 기반 서비스 구축 및 운영 경험이 있으며, 웹
-          표준을 고려한 인터랙티브 웹 프로젝트들을 진행했습니다. <br />
-          재사용 가능한 컴포넌트 작성과 코드의 완성도를 높이는 과정에 큰
-          즐거움을 느낍니다. 개발을 할 때 정답이 있다기보다 상황에 적절한 최적의
-          방식이 있다고 생각하고, 이를 위한 건설적인 토론과 코드 리뷰를
-          좋아합니다.
+          Webby Awards 2022 Nominee <span>2022.03</span>
         </p>
-      </section>
-      <section className="skills">
-        <p className="title">Skills</p>
-        <div className="core">
-          <div className="main">
-            <SkillList skills={SKILL_LIST.core.main} prefix={'main'} />
-          </div>
-        </div>
-        <div className="others">
-          <div className="statement">
-            <SkillList
-              skills={SKILL_LIST.others.statement}
-              prefix={'statement'}
-            />
-          </div>
-          <div className="style">
-            <SkillList skills={SKILL_LIST.others.style} prefix={'style'} />
-          </div>
-          <div className="etc">
-            <SkillList skills={SKILL_LIST.others.etc} prefix={'etc'} />
-          </div>
-        </div>
-      </section>
-      <section className="experience-area">
-        <p className="title">Experiences</p>
-
-        {EXPERIENCE_LIST.map(item => (
-          <ExperienceItem item={item} key={`experience-${item.companyName}`} />
-        ))}
-      </section>
-      <section className="education">
-        <p className="title">Education</p>
-        <p>
-          계원예술대학교 디지털미디어디자인과 프로그래밍전공
-          <span>2015.03 - 2018.02</span>
+        <p className="description">
+          WebGL 기반의 웹 메타버스 체험존에서 전반적인 UI와 <br />
+          인터랙티브 채팅, 이벤트 프로모션 구현
         </p>
-      </section>
-      <section className="award">
-        <p className="title">Award</p>
-        <div className="text-area">
-          <p>
-            Webby Awards 2022 Nominee <span>2022.03</span>
-          </p>
-          <p className="description">
-            WebGL 기반의 웹 메타버스 체험존에서 전반적인 UI와 <br />
-            인터랙티브 채팅, 이벤트 프로모션 구현
-          </p>
+      </div>
+    </section>
+    <section className="contact">
+      <p className="title">Contact</p>
+      <div className="text-area">
+        <div className="link-box">
+          <Link href={'mailto:pftrobot@gmail.com'}>pftrobot@gmail.com</Link>
         </div>
-      </section>
-      <section className="contact">
-        <p className="title">Contact</p>
-        <div className="text-area">
-          <p>pftrobot@gmail.com</p>
+        <div className="link-box">
           <Link
             href="https://github.com/pftrobot"
             target="_blank"
@@ -89,10 +89,19 @@ const Home = () => {
             Github
           </Link>
         </div>
-      </section>
-    </main>
-  )
-}
+        <div className="link-box">
+          <Link
+            href="https://mini-flyingfish-f3c.notion.site/Book-7076265cac0f4ddbaa75182c4810a62d?pvs=4"
+            target="_blank"
+            css={LinkCSS}
+          >
+            Notebook
+          </Link>
+        </div>
+      </div>
+    </section>
+  </main>
+)
 
 export default Home
 
@@ -249,52 +258,16 @@ const MainCSS = () => css`
 
   .contact {
     .text-area {
-      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
-    button,
     a {
       font-size: 16px;
       margin-right: -8px;
-    }
-
-    button {
-      display: block;
-      font-weight: 300;
-      padding: 6px 8px;
-      border: none;
-      background-color: transparent;
-      transition: all 0.2s linear;
-
-      @media (max-width: ${breakMedium}px) {
-        margin-left: auto;
-      }
-
-      svg {
-        display: inline-block;
-        vertical-align: middle;
-        margin-top: -2px;
-        stroke: #333;
-        transition: stroke 0.2s linear;
-      }
-
-      @media (hover: hover) {
-        &:hover {
-          color: orange;
-
-          svg {
-            stroke: orange;
-          }
-        }
-      }
-    }
-
-    a {
-      display: inline-block;
-      font-size: 16px;
       color: orange;
       text-decoration: none;
-      margin-top: 4px;
     }
   }
 `
